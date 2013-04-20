@@ -2,7 +2,7 @@ Meteor.subscribe('posts');
 
 
 Template.posts.posts = function () {
-    return Posts.find();
+    return Posts.find({}, {sort: {score:-1}});
 };
 
 Template.post.events({
@@ -15,4 +15,5 @@ Template.post.events({
 Accounts.ui.config({
     passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
 });
+
 

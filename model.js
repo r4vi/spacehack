@@ -29,3 +29,17 @@ Meteor.methods({
         });
     }
 });
+
+function nope(uid, thing) {
+    return false;
+}
+if (Meteor.is_client) {
+    Posts.allow({
+        insert: nope,
+        remove: nope,
+        update: function(userId, doc, fields, modifier) {
+            return fields.length === 1 && fields[0] === 'score';
+
+        }
+    });
+}
