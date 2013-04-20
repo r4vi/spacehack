@@ -1,26 +1,37 @@
 <head>
   <title>spacehack</title>
+  <script type="text/javascript" src="//use.typekit.net/gxv8uxv.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 
 <body>
-  {{> posts}}
-  <hr>
   {{loginButtons}}
+  <h1 class="hero">Space<span class="hero--alt">Battle</span></h1>
+  <h2 class="hero__sub">When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is.</h2>
+  {{> posts}}
 </body>
 
 <template name="posts">
-  {{#each posts}}
-    {{> post}}
-  {{/each}}
+  <section class="cards">
+    {{#each posts}}
+      {{> post}}
+    {{/each}}
+  </section>
 </template>
 
 <template name="post">
-  <h1>{{title}}</h1>
-
-  <div>
-    <img src="{{image}}" width="100" height="100">
+  <div class="card">
+    <figure class="card__image">
+      <img src="{{image}}" width="100" height="100">
+    </figure>
+    <h3 class="card__title">{{title}}</h3>
+    <div class="card__body">
     {{body}}
-    {{score}}
-    <button class="upvotable">Upvote</button>
+    </div>
+
+    <button class="btn btn--primary btn--full upvotable">
+      <span class="btn__prepend">{{score}}</span>
+      Launch it
+    </button>
   </div>
 </template>
