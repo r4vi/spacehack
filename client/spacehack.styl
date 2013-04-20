@@ -1,0 +1,110 @@
+@import 'nib'
+
+beige = #EAE6C8
+blue = #0C99C5
+red = #C34646
+
+*
+  &, &:before, &:after
+    box-sizing: border-box
+
+body
+  background-image: linear-gradient(top, #062026, #000000)
+  font-size: 16px
+  font-family: anonymous-pro
+  color: beige
+  margin: 0
+  line-height: 1.25
+  padding: 0
+  -webkit-font-smoothing: antialiased
+  text-rendering: optimizeLegibility
+
+.hero
+  font-family: 'Futura Std'
+  font-weight: 700
+  color: red
+  text-transform: uppercase
+  font-size: 4em
+  text-align: center
+.hero--alt
+  color: blue
+
+.hero__sub
+  color: beige
+  font-family: 'Futura Std'
+  font-weight: 700
+  // text-transform: uppercase
+  text-align: center
+  font-size: 1em
+
+.card
+  background: beige
+  color: black
+  width: 16em
+  margin: 0 2em 2em 0
+  float: left
+
+.card__image
+  position: relative
+  padding-top: 75%
+  position: relative
+  overflow: hidden
+  img
+    position: absolute
+    top: 0
+    right: 0
+    bottom: 0
+    left: 0
+
+.card__body
+  padding: 8px
+  color: #504533
+  font-size: .8125em
+
+.card__title
+  font-family: 'Futura Std'
+  text-transform: uppercase
+  font-weight: 700
+  color: #071011
+  padding: 8px
+  margin: 0
+  font-size: 1em
+
+figure
+  margin: 0
+  padding: 0
+
+img
+  max-width: 100%
+  width: 100%
+  height: auto
+
+.btn
+  font-size: 1em
+  font-weight: 700
+  cursor: pointer
+  border-radius: .25em
+  margin: 0
+  padding: .75em 1.5em .75em 3em
+  display: inline-block
+  font-family: 'Futura Std'
+  border: 0
+  text-transform: uppercase
+  position: relative
+
+.btn--primary
+  background: blue
+  text-shadow: 0px 2px 0px darken(blue, 35%)
+  border-bottom: 3px solid darken(blue, 35%)
+  color: beige
+
+.btn__prepend
+  position: absolute
+  top: 0
+  left: 0
+  padding: .75em 1.5em
+  margin-right: 1em
+  background: darken(blue, 40%)
+
+.btn--full
+  width: 100%
