@@ -1,0 +1,24 @@
+<head>
+  <title>spacehack</title>
+</head>
+
+<body>
+  {{> posts}}
+  <hr>
+  {{loginButtons}}
+</body>
+
+
+
+<template name="posts">
+  {{#each posts}}
+    <h1>{{title}}</h1>
+
+    <div>
+        <img src="{{image}}" width="100" height="100">
+        {{body}}
+    </div>
+
+
+  {{/each}}
+</template>
