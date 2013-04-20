@@ -1,5 +1,3 @@
-
-
 Meteor.methods({
     populatePosts: function(userId) {
         var u = Meteor.users.findOne({'id': userId});
