@@ -62,7 +62,6 @@ casper.start "http://spinoff.nasa.gov/Spinoff2011/toc_2011.html", ->
     item.href = abs(base, item.href)
     item
 
-  tocLinks = tocLinks.slice(0,2)
   casper.each (x['href'] for x in tocLinks), (self, link) ->
     @thenOpen link, ->
 
@@ -74,7 +73,7 @@ casper.start "http://spinoff.nasa.gov/Spinoff2011/toc_2011.html", ->
       tocLinks = tocLinks.map (item) ->
         if item.href == link
           item.image = abs(base,image)
-          #item.story = story
+          item.story = story
         item
   
 
