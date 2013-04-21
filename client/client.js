@@ -8,7 +8,7 @@ Template.posts.posts = function () {
   var searchValue = Session.get('searchValue');
   var reg = new RegExp(searchValue, "i");
   var sel = {
-    featured: true,
+    // featured: 1,
     $or: [
       {
         title: {
@@ -22,7 +22,7 @@ Template.posts.posts = function () {
     ]
   };
 
-  return Posts.find(sel, {sort: {score:-1}});
+  return Posts.find(sel, {sort: {score:-1}, limit: 15} );
 };
 
 Template.posts.rendered = function() {
