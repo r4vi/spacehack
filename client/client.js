@@ -8,6 +8,7 @@ Template.posts.posts = function () {
   var searchValue = Session.get('searchValue');
   var reg = new RegExp(searchValue, "i");
   var sel = {
+    featured: true,
     $or: [
       {
         title: {
