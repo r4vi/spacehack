@@ -1,5 +1,8 @@
 Meteor.subscribe('posts');
 
+Template.voting.posts = function() {
+  return Posts.find({}, {limit: 2});
+};
 
 Template.posts.posts = function () {
   var searchValue = Session.get('searchValue');
@@ -22,8 +25,10 @@ Template.posts.posts = function () {
 };
 
 Template.posts.rendered = function() {
-  $('.cards').packery({
-    'gutter': 10
+  $('.cards').imagesLoaded(function(){
+    $('.cards').packery({
+      'gutter': 16
+    });
   });
 };
 
@@ -34,8 +39,11 @@ Template.posts.events({
   }
 });
 
-Template.post.loaded = function() {
-  $('.cards').packery('reloadItems');
+Template.post.rendered = function() {
+  $('.cards').packery({
+    'gutter': 16
+  });
+  // $('.cards').packery('appended', $('.card')).packery();
 };
 
 Template.post.image = function() {

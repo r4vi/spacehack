@@ -6,10 +6,21 @@
 
 <body>
   {{loginButtons}}
-  <h1 class="hero">Space<span class="hero--alt">Battle</span></h1>
-  <h2 class="hero__sub">When I orbited the Earth in a spaceship, I saw for the first time how beautiful our planet is.</h2>
+  <h1 class="hero"><span class="hero--alt">MADE</span>by<span class="hero--alt-2">NASA</span></h1>
+  <h2 class="hero__sub">So much crazy good technology came from NASA.
+  <br>
+  Which of these inventions do you think is cooler?</h2>
+  {{> voting}}
   {{> posts}}
 </body>
+
+<template name="voting">
+  <div class="voting">
+  {{#each posts}}
+    {{> post}}
+  {{/each}}
+  </div>
+</template>
 
 <template name="posts">
   <input name="search" id="search" type="text" placeholder="Search for articles!">
@@ -30,9 +41,9 @@
     {{body}}
     </div>
 
-<!--     <button class="btn btn--primary btn--full upvotable">
-      <span class="btn__prepend">{{score}}</span>
+    <button class="btn btn--primary btn--full upvotable">
+      <!-- <span class="btn__prepend">{{score}}</span> -->
       Launch it
-    </button> -->
+    </button>
   </div>
 </template>
