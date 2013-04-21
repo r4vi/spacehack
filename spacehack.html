@@ -12,6 +12,7 @@
 </body>
 
 <template name="posts">
+  <input name="search" id="search" type="text" placeholder="Search for articles!">
   <section class="cards">
     {{#each posts}}
       {{> post}}
@@ -22,16 +23,16 @@
 <template name="post">
   <div class="card">
     <figure class="card__image">
-      <img src="{{image}}" width="100" height="100">
+      {{image}}
     </figure>
     <h3 class="card__title">{{title}}</h3>
     <div class="card__body">
     {{body}}
     </div>
 
-    <button class="btn btn--primary btn--full upvotable">
+<!--     <button class="btn btn--primary btn--full upvotable">
       <span class="btn__prepend">{{score}}</span>
       Launch it
-    </button>
+    </button> -->
   </div>
 </template>

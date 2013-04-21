@@ -2,13 +2,51 @@ Meteor.subscribe('posts');
 
 
 Template.posts.posts = function () {
-    return Posts.find({}, {sort: {score:-1}});
+  var searchValue = Session.get('searchValue');
+  var reg = new RegExp(searchValue, "i");
+  var sel = {
+    $or: [
+      {
+        title: {
+          $regex: reg
+        }
+      }, {
+        body: {
+          $regex: reg
+        }
+      }
+    ]
+  };
+
+  return Posts.find(sel, {sort: {score:-1}});
 };
 
 Template.posts.rendered = function() {
-  $(document).ready(function() {
-    $('.cards').packery();
+  $('.cards').packery({
+    'gutter': 10
   });
+};
+
+Template.posts.events({
+  'keyup #search': function (e, template) {
+    var $field = $('#search');
+    Session.set('searchValue', $field.val());
+  }
+});
+
+Template.post.loaded = function() {
+  $('.cards').packery('reloadItems');
+};
+
+Template.post.image = function() {
+  var src;
+  if (this.image !== "") {
+    src = this.image;
+  } else {
+    var grossRandomNumber = Math.floor(Math.random(9)*10);
+    src = "http://spaceholder.co/p/22"+grossRandomNumber;
+  }
+  return new Handlebars.SafeString("<img src='"+ src + "'>");
 };
 
 Template.post.events({

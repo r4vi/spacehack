@@ -11,7 +11,7 @@ function thingToPost(thing) {
         body: thing['Alt Blurb'],
         link: thing['Link'],
         origin: thing['Origin']
-    }
+    };
 }
 
 Meteor.methods({
