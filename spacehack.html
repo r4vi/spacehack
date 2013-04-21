@@ -16,13 +16,16 @@
 
 <template name="voting">
   <div class="voting">
+  <div class="vs">v.s.</div>
   {{#each posts}}
     {{> post}}
   {{/each}}
   </div>
+
 </template>
 
 <template name="posts">
+  <h2>More awesome tech from NASA</h2>
   <input name="search" id="search" type="text" placeholder="Search for articles!">
   <section class="cards">
     {{#each posts}}
