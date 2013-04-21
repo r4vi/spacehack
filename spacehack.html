@@ -34,9 +34,9 @@
 <template name="post">
   <div class="card">
     <figure class="card__image">
-      {{image}}
+      <img src="{{image}}">
     </figure>
-    <h3 class="card__title">{{title}}</h3>
+    <h3 class="card__title"><span class="card__score">{{score}}&nbsp;</span>{{title}}</h3>
     <div class="card__body">
     {{body}}
     </div>

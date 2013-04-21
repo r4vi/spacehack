@@ -40,22 +40,19 @@ Template.posts.events({
 });
 
 Template.post.rendered = function() {
-  $('.cards').packery({
-    'gutter': 16
-  });
-  // $('.cards').packery('appended', $('.card')).packery();
+  $('.cards').packery().packery('reloadItems').packery();
 };
 
-Template.post.image = function() {
-  var src;
-  if (this.image !== "") {
-    src = this.image;
-  } else {
-    var grossRandomNumber = Math.floor(Math.random(9)*10);
-    src = "http://spaceholder.co/p/22"+grossRandomNumber;
-  }
-  return new Handlebars.SafeString("<img src='"+ src + "'>");
-};
+// Template.post.image = function() {
+//   var src;
+//   if (this.image !== "") {
+//     src = this.image;
+//   } else {
+//     var grossRandomNumber = Math.floor(Math.random(9)*10);
+//     src = "http://spaceholder.co/p/22"+grossRandomNumber;
+//   }
+//   return new Handlebars.SafeString("<img src='"+ src + "'>");
+// };
 
 Template.post.events({
   'click .upvotable': function(event) {
@@ -63,6 +60,14 @@ Template.post.events({
     Meteor.call('upvote', this._id);
   }
 });
+
+Template.post.score = function() {
+  if (this.score === '') {
+    return 0;
+  } else {
+    return this.score;
+  }
+};
 
 Accounts.ui.config({
     passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
