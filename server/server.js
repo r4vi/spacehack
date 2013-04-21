@@ -10,8 +10,9 @@ function thingToPost(thing) {
         source: thing['Source'],
         body: thing['Alt Blurb'],
         link: thing['Link'],
-        origin: thing['Origin']
-    };
+        origin: thing['Origin'],
+        categories: thing['Categories'].split(',')
+    }
 }
 
 Meteor.methods({

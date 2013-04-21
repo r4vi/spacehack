@@ -1,2 +1,5 @@
 .idea/
 .spacehack.iml
+.tools/scraper/node_modules/
+.swp
+*.swp
