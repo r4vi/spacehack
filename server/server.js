@@ -12,7 +12,7 @@ function thingToPost(thing) {
         link: thing['Link'],
         origin: thing['Origin'],
         categories: thing['Categories'].split(','),
-        featured: thing['Featured'] && thing['Featured'] === 1
+        featured: thing['Featured'] && thing['Featured'] == '1'
     }
 }
 
