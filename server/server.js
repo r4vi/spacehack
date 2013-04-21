@@ -11,7 +11,8 @@ function thingToPost(thing) {
         body: thing['Alt Blurb'],
         link: thing['Link'],
         origin: thing['Origin'],
-        categories: thing['Categories'].split(',')
+        categories: thing['Categories'].split(','),
+        featured: thing['Featured'] && thing['Featured'] === 1
     }
 }
 
