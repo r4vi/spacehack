@@ -27,6 +27,7 @@ body
   font-size: 4em
   text-align: center
   margin-bottom: 0
+  text-shadow: 8px 8px 0 rgba(0,0,0,.2)
   // text-shadow: 2px 2px 0 blue, 4px 4px red
 .hero--alt
   color: blue
@@ -37,14 +38,29 @@ body
   color: beige
   font-family: 'Futura Std'
   font-weight: 700
-  // text-transform: uppercase
+  text-transform: uppercase
   text-align: center
   font-size: 1em
+  margin-bottom: 2em
 
 .voting
   overflow: hidden
+  max-width: 40em
+  margin: 0 auto
+  position: relative
   .card__score
     display: none
+  .vs
+    position: absolute
+    left: 50%
+    width: 5em
+    margin-left: -2.5em
+    top: 50%
+    margin-top: -2.5em
+    text-align: center
+  .card:last-child
+    float: right
+    margin: 0 0 1em 1em
 
 .cards
   button
@@ -54,6 +70,7 @@ body
   background: beige
   color: black
   width: 16em
+  margin: 0 1em 1em 0
   float: left
 
 .card__image
@@ -99,13 +116,14 @@ img
   font-weight: 700
   cursor: pointer
   border-radius: .25em
-  margin: 0
-  padding: .75em 1.5em .75em 3em
+  margin: 8px -8px 8px 8px
+  padding: .75em 1.5em
   display: inline-block
   font-family: 'Futura Std'
   border: 0
   text-transform: uppercase
   position: relative
+
 
 .btn--primary
   background: blue
@@ -113,13 +131,14 @@ img
   border-bottom: 3px solid darken(blue, 35%)
   color: beige
 
-.btn__prepend
-  position: absolute
-  top: 0
-  left: 0
-  padding: .75em 1.5em
-  margin-right: 1em
-  background: darken(blue, 40%)
+// .btn__prepend
+//   position: absolute
+//   top: 0
+//   left: 0
+//   padding: .75em 1.5em
+//   margin-right: 1em
+//   background: darken(blue, 40%)
 
 .btn--full
-  width: 100%
+  // width: 100%
+  width: 15em

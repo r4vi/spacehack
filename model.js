@@ -15,16 +15,16 @@ Meteor.startup(function (){
 
 Meteor.methods({
     upvote: function(postId) {
-        var user = Meteor.user();
-        if (!user) {
-            return;
-        }
+        // var user = Meteor.user();
+        // if (!user) {
+        //     return;
+        // }
 
         Posts.update({
-            _id: postId,
-            upvotes: {$ne: user._id}
+            _id: postId
+            // upvotes: {$ne: user._id}
         }, {
-            $addToSet: {upvoters: user._id},
+            // $addToSet: {upvoters: user._id},
             $inc: {score: 1}
         });
     }

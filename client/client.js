@@ -25,10 +25,14 @@ Template.posts.posts = function () {
 };
 
 Template.posts.rendered = function() {
-  $('.cards').imagesLoaded(function(){
-    $('.cards').packery({
-      'gutter': 16
+    $('.cards').isotope({
+      // options
+      itemSelector : '.card',
+      layoutMode : 'masonry',
+      transformsEnabled: false
     });
+  $('.cards').imagesLoaded(function(){
+    $('.cards').isotope('reloadItems');
   });
 };
 
@@ -40,7 +44,11 @@ Template.posts.events({
 });
 
 Template.post.rendered = function() {
-  $('.cards').packery().packery('reloadItems').packery();
+
+  if ($('.cards').hasClass('isotope')) {
+    $('.cards').isotope('reloadItems');
+  }
+  // $('.cards').packery().packery('reloadItems').packery();
 };
 
 // Template.post.image = function() {
@@ -57,7 +65,12 @@ Template.post.rendered = function() {
 Template.post.events({
   'click .upvotable': function(event) {
     event.preventDefault();
+    event.stopPropagation();
     Meteor.call('upvote', this._id);
+    return false;
+  },
+  'click': function(event) {
+    window.open(this.link, '_blank');
   }
 });
 
@@ -72,5 +85,3 @@ Template.post.score = function() {
 Accounts.ui.config({
     passwordSignupFields: 'USERNAME_AND_OPTIONAL_EMAIL'
 });
-
-
