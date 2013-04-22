@@ -4,8 +4,8 @@ Template.voting.posts = function() {
   var votedOn = Session.get('votedOn') || [];
   var randomNum = Math.random();
   console.log(randomNum);
-  var postOne = Posts.findOne({randomKey:{$lte:randomNum}}) || Posts.findOne({randomKey:{$gte:randomNum}});
-  var postTwo = Posts.findOne({_id:{$not:postOne._id} ,randomKey:{$lte:randomNum}}) || Posts.findOne({randomKey:{$gte:randomNum}});
+  var postOne = Posts.findOne({randomkey:{$lte:randomNum}}) || Posts.findOne({randomkey:{$gte:randomNum}});
+  var postTwo = Posts.findOne({_id:{$not:postOne._id} ,randomkey:{$lte:randomNum}}) || Posts.findOne({randomkey:{$gte:randomNum}});
   var postPair = [postOne, postTwo];
 
  // var votedPair = postPair[0]._id + ',' postPair[1]._id;
