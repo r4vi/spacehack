@@ -27,6 +27,9 @@ Meteor.methods({
             // $addToSet: {upvoters: user._id},
             $inc: {score: 1}
         });
+        var alreadyVotedOn = Session.get('votedOn')||[];
+        alreadyVotedOn.push(postId);
+        Session.set('votedOn', alreadyVotedOn);
     }
 });
 

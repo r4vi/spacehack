@@ -1,7 +1,8 @@
 Meteor.subscribe('posts');
 
 Template.voting.posts = function() {
-  return Posts.find({}, {limit: 2});
+  var votedOn = Session.get('votedOn') || [];
+  return Posts.find({_id:{$nin:votedOn}}, {limit: 2});
 };
 
 Template.posts.posts = function () {
