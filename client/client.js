@@ -2,7 +2,14 @@ Meteor.subscribe('posts');
 
 Template.voting.posts = function() {
   var votedOn = Session.get('votedOn') || [];
-  return Posts.find({_id:{$nin:votedOn}}, {limit: 2});
+  var randomNum = Math.random();
+  console.log(randomNum);
+  var postOne = Posts.findOne({randomKey:{$lte:randomNum}}) || Posts.findOne({randomKey:{$gte:randomNum}});
+  var postTwo = Posts.findOne({_id:{$not:postOne._id} ,randomKey:{$lte:randomNum}}) || Posts.findOne({randomKey:{$gte:randomNum}});
+  var postPair = [postOne, postTwo];
+
+ // var votedPair = postPair[0]._id + ',' postPair[1]._id;
+  return postPair;
 };
 
 Template.posts.posts = function () {
@@ -69,6 +76,7 @@ Template.post.events({
     event.preventDefault();
     event.stopPropagation();
     Meteor.call('upvote', this._id);
+    console.log(this);
     return false;
   },
   'click': function(event) {
